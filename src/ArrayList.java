@@ -1,12 +1,12 @@
 public class ArrayList implements List {
     
+    private int arraySize;
     private Object[] newList;
-    private int length;
     private int nextFree;
     
-    public void ArrayList(int size){
-        newList = new Object[size];
-        length = size;
+    public void ArrayList(){
+        arraySize = 100;
+        newList = new Object[arraySize];
         nextFree = 0;
     }
     
@@ -56,6 +56,7 @@ public class ArrayList implements List {
                 newList[i] = newList[i+1];
             }
             newList[nextFree-1] = null;
+            nextFree =- 1;
             return returnItem;
         }
     }
@@ -70,9 +71,13 @@ public class ArrayList implements List {
             }
             return error;
         } else {
+            if(nextFree+1 > arraySize){
+                increaseSize();
+            }
             for(int i = nextFree; i > index; i--){
                 newList[i] = newList[i-1];
             }
+            nextFree =+ 1;
             ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
             newList[index] = item;
             return returnItem;
@@ -84,10 +89,19 @@ public class ArrayList implements List {
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
             return error;
         } else {
+            if(nextFree+1 > arraySize){
+                increaseSize();
+            }
             newList[nextFree] = item;
             nextFree =+ 1;
             ReturnObjectImpl empty = new ReturnObjectImpl();
             return empty;
         }
+    }
+    
+    private void increaseSize(){
+        Object[] temp = new Object[arraySize * 2];
+        System.arraycopy(newList, 0, temp, 0, arraySize);
+        newList = temp;
     }
 }

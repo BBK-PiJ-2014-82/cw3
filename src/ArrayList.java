@@ -42,7 +42,22 @@ public class ArrayList implements List {
     }
     
     public ReturnObject remove(int index){
-        
+        if(index < 0 || index >= nextFree){
+            ReturnObjectImpl error;
+            if(nextFree == 0){
+                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            }
+            return error;
+        } else {
+            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            for(int i = index; i < nextFree-1; i++){
+                newList[i] = newList[i+1];
+            }
+            newList[nextFree-1] = null;
+            return returnItem;
+        }
     }
     
     public ReturnObject add(int index, Object item){

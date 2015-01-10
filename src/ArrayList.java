@@ -11,7 +11,11 @@ public class ArrayList implements List {
     }
     
     public boolean isEmpty(){
-        
+        if (lastUsed == 0){
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public int size(){

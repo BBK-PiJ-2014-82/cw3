@@ -7,6 +7,10 @@ public class ReturnObjectImpl implements ReturnObject {
         toReturn = item;
     }
     
+    public ReturnObjectImpl(ErrorMessage error){
+        this.error = error;
+    }
+    
     public boolean hasError(){
         if(error == null){
             return false;
@@ -30,5 +34,4 @@ public class ReturnObjectImpl implements ReturnObject {
             return toReturn;
         }
     }
-    
 }

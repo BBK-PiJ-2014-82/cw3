@@ -1,11 +1,8 @@
 public class ReturnObjectImpl implements ReturnObject {
     
-    private Object toReturn;
     private ErrorMessage error;
     
-    public ReturnObjectImpl(Object item){
-        toReturn = item;
-    }
+    public ReturnObjectImpl(){}
     
     public ReturnObjectImpl(ErrorMessage error){
         this.error = error;

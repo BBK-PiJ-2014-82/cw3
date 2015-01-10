@@ -2,16 +2,16 @@ public class ArrayList implements List {
     
     private Object[] newList;
     private int length;
-    private int lastUsed;
+    private int nextFree;
     
     public void ArrayList(int size){
         newList = new Object[size];
         length = size;
-        lastUsed = 0;
+        nextFree = 0;
     }
     
     public boolean isEmpty(){
-        if (lastUsed == 0){
+        if (nextFree == 0){
             return true;
         } else {
             return false;
@@ -22,12 +22,23 @@ public class ArrayList implements List {
         if(isEmpty()){
             return 0;
         } else {
-            return lastUsed - 1;
+            return nextFree - 1;
         }
     }
     
     public ReturnObject get(int index){
-        
+        if(index < 0 || index >= nextFree){
+            ReturnObjectImpl error;
+            if(nextFree == 0){
+                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            }
+            return error;
+        } else {
+            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            return returnItem;
+        }
     }
     
     public ReturnObject remove(int index){
@@ -43,8 +54,8 @@ public class ArrayList implements List {
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
             return error;
         } else {
-            newList[lastUsed] = item;
-            lastUsed =+ 1;
+            newList[nextFree] = item;
+            nextFree =+ 1;
             ReturnObjectImpl empty = new ReturnObjectImpl();
             return empty;
         }

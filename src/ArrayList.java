@@ -15,7 +15,11 @@ public class ArrayList implements List {
     }
     
     public int size(){
-        
+        if(isEmpty()){
+            return 0;
+        } else {
+            return lastUsed - 1;
+        }
     }
     
     public ReturnObject get(int index){

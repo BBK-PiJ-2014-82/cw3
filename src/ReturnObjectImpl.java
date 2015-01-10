@@ -1,21 +1,22 @@
 public class ReturnObjectImpl implements ReturnObject {
     
-    Object toReturn;
+    private Object toReturn;
+    private ErrorMessage error = NO_ERROR;
     
     public ReturnObjectImpl(Object item){
         toReturn = item;
     }
     
     public boolean hasError(){
-        
+        if(error != NO_ERROR){
+            return false;
+        } else {
+            return true;
+        }
     }
     
     public ErrorMessage getError(){
-        if(hasError()){
-            
-        } else {
-            
-        }
+        return error;
     }
     
     public Object getReturnValue(){

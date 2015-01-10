@@ -1,14 +1,14 @@
 public class ReturnObjectImpl implements ReturnObject {
     
     private Object toReturn;
-    private ErrorMessage error = NO_ERROR;
+    private ErrorMessage error;
     
     public ReturnObjectImpl(Object item){
         toReturn = item;
     }
     
     public boolean hasError(){
-        if(error != NO_ERROR){
+        if(error == null){
             return false;
         } else {
             return true;
@@ -16,7 +16,11 @@ public class ReturnObjectImpl implements ReturnObject {
     }
     
     public ErrorMessage getError(){
-        return error;
+        if(hasError()){
+            return error;
+        } else {
+            return ErrorMessage.NO_ERROR;
+        }
     }
     
     public Object getReturnValue(){

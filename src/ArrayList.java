@@ -61,7 +61,22 @@ public class ArrayList implements List {
     }
     
     public ReturnObject add(int index, Object item){
-        
+        if(index < 0 || index >= nextFree){
+            ReturnObjectImpl error;
+            if(nextFree == 0){
+                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            }
+            return error;
+        } else {
+            for(int i = nextFree; i > index; i--){
+                newList[i] = newList[i-1];
+            }
+            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            newList[index] = item;
+            return returnItem;
+        }
     }
     
     public ReturnObject add(Object item){

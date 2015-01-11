@@ -1,29 +1,17 @@
 public class ArrayList implements List {
     
-    private int arraySize;
-    private Object[] newList;
-    private int nextFree;
+    private int arraySize = 100;
+    private Object[] newList = new Object[arraySize];
+    private int nextFree = 0;
     
-    public void ArrayList(){
-        arraySize = 100;
-        newList = new Object[arraySize];
-        nextFree = 0;
-    }
+    public void ArrayList(){}
     
     public boolean isEmpty(){
-        if (nextFree == 0){
-            return true;
-        } else {
-            return false;
-        }
+        if (nextFree == 0){return true;} else {return false;}
     }
     
     public int size(){
-        if(isEmpty()){
-            return 0;
-        } else {
-            return nextFree - 1;
-        }
+        if(isEmpty()){return 0;} else {return nextFree;}
     }
     
     public ReturnObject get(int index){
@@ -56,13 +44,13 @@ public class ArrayList implements List {
                 newList[i] = newList[i+1];
             }
             newList[nextFree-1] = null;
-            nextFree =- 1;
+            nextFree -= 1;
             return returnItem;
         }
     }
     
     public ReturnObject add(int index, Object item){
-        if(index < 0 || index >= nextFree){
+        if(index < 0 || index > nextFree){
             ReturnObjectImpl error;
             if(nextFree == 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
@@ -71,13 +59,11 @@ public class ArrayList implements List {
             }
             return error;
         } else {
-            if(nextFree+1 > arraySize){
-                increaseSize();
-            }
+            if(nextFree > arraySize){increaseSize();}
             for(int i = nextFree; i > index; i--){
                 newList[i] = newList[i-1];
             }
-            nextFree =+ 1;
+            nextFree += 1;
             ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
             newList[index] = item;
             return returnItem;
@@ -89,11 +75,9 @@ public class ArrayList implements List {
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
             return error;
         } else {
-            if(nextFree+1 > arraySize){
-                increaseSize();
-            }
+            if(nextFree > arraySize){increaseSize();}
             newList[nextFree] = item;
-            nextFree =+ 1;
+            nextFree += 1;
             ReturnObjectImpl empty = new ReturnObjectImpl();
             return empty;
         }
@@ -101,7 +85,7 @@ public class ArrayList implements List {
     
     private void increaseSize(){
         Object[] temp = new Object[arraySize * 2];
-        System.arraycopy(newList, 0, temp, 0, arraySize);
+        System.arraycopy(newList, 0, temp, 0, arraySize );
         newList = temp;
     }
 }

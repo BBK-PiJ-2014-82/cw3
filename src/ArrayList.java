@@ -6,9 +6,7 @@ public class ArrayList implements List {
     
     public void ArrayList(){}
     
-    public boolean isEmpty(){
-        if (nextFree == 0){return true;} else {return false;}
-    }
+    public boolean isEmpty(){if (nextFree == 0){return true;} else {return false;}}
     
     public int size(){
         if(isEmpty()){return 0;} else {return nextFree;}
@@ -59,7 +57,7 @@ public class ArrayList implements List {
             }
             return error;
         } else {
-            if(nextFree > arraySize){increaseSize();}
+            if(nextFree+1 > arraySize){increaseSize();}
             for(int i = nextFree; i > index; i--){
                 newList[i] = newList[i-1];
             }
@@ -75,7 +73,7 @@ public class ArrayList implements List {
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
             return error;
         } else {
-            if(nextFree > arraySize){increaseSize();}
+            if(nextFree+1 > arraySize){increaseSize();}
             newList[nextFree] = item;
             nextFree += 1;
             ReturnObjectImpl empty = new ReturnObjectImpl();
@@ -87,5 +85,6 @@ public class ArrayList implements List {
         Object[] temp = new Object[arraySize * 2];
         System.arraycopy(newList, 0, temp, 0, arraySize );
         newList = temp;
+        arraySize = arraySize * 2;
     }
 }

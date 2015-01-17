@@ -1,6 +1,6 @@
 public class LinkedList implements List {
     
-    private Node head;
+    private Node head = new Node();
     private int size = 0;
     private int position = 0;
     
@@ -63,19 +63,15 @@ public class LinkedList implements List {
             } else {
                 Node newNode = new Node();
                 newNode.item = item;
-                if(head == null){
-                    head = newNode;
-                } else {
-                    Node runner = head.next;
-                    Node previous = head;
-                    while(index != position){
-                        previous = runner;
-                        runner = runner.next;
-                        position++;
-                    }
-                    newNode.next = runner;
-                    previous.next = newNode;
+                Node runner = head.next;
+                Node previous = head;
+                while(index != position){
+                    previous = runner;
+                    runner = runner.next;
+                    position++;
                 }
+                newNode.next = runner;
+                previous.next = newNode;
                 size++;
                 position = 0;
                 ReturnObjectImpl empty = new ReturnObjectImpl();
@@ -91,16 +87,12 @@ public class LinkedList implements List {
         } else {
             Node newNode = new Node();
             newNode.item = item;
-            if(head.next == null){
-                head = newNode;
-            } else {
-                Node runner = head;
-                while(runner.next != null){
-                    runner = runner.next;
-                    position++;
-                }
-                runner.next = newNode;
+            Node runner = head;
+            while(runner.next != null){
+                runner = runner.next;
+                position++;
             }
+            runner.next = newNode;
             position = 0;
             size++;
             ReturnObjectImpl empty = new ReturnObjectImpl();

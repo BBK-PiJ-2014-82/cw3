@@ -6,7 +6,7 @@ public class ArrayList implements List {
     
     public void ArrayList(){}
     
-    public boolean isEmpty(){if (nextFree == 0){return true;} else {return false;}}
+    public boolean isEmpty(){return nextFree == 0;}
     
     public int size(){
         if(isEmpty()){return 0;} else {return nextFree;}

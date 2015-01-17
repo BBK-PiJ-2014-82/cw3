@@ -1,12 +1,12 @@
 public class LinkedList implements List {
     
-    private Node head = new Node();
+    final private Node head = new Node();
     private int size = 0;
     private int position = 0;
     
     public void LinkedList(){}
     
-    public boolean isEmpty(){if (size == 0){return true;} else {return false;}}
+    public boolean isEmpty(){return size == 0;}
     
     public int size(){
         return size;

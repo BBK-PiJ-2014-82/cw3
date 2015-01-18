@@ -1,4 +1,3 @@
-import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -65,7 +64,7 @@ public class StackImplTest {
             newList.add(i * 15);
         }
         stack = new StackImpl(newList);
-        stack.pop().getReturnValue();
+        stack.pop();
         int pop = (Integer) stack.pop().getReturnValue();
         assertEquals("Initial pop did not work correctly.", 30, pop);
     }

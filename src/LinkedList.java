@@ -1,7 +1,7 @@
 public class LinkedList implements List {
     
     private Node head;
-    private int size = 0;
+    protected int size = 0;
     private int position = 0;
     
     public void LinkedList(){}

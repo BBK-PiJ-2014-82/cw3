@@ -68,4 +68,19 @@ public class ImprovedStackImplTest {
         int pop = (Integer) stack.pop().getReturnValue();
         assertEquals("Initial pop did not work correctly.", 30, pop);
     }
+    
+    @Test
+    public void testReverse(){
+        FunctionalLinkedList newList = new FunctionalLinkedList();
+        for(int i = 1; i < 101; i++){
+            newList.add(i * 15);
+        }
+        stack = new ImprovedStackImpl(newList);
+        stack.reverse();
+        for(int i = 100; i > 0; i--){
+            int j = (Integer) stack.pop().getReturnValue();
+            assertEquals("Numbers are not correct.", i * 15, j);
+        }
+    }
+    
 }

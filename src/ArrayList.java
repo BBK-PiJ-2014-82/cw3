@@ -1,7 +1,7 @@
 public class ArrayList implements List {
     
     private int arraySize = 100;
-    private Object[] newList = new Object[arraySize];
+    protected Object[] newList = new Object[arraySize];
     private int nextFree = 0;
     
     public void ArrayList(){}

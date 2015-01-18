@@ -95,9 +95,10 @@ public class ImprovedStackImplTest {
         }
         stack = new ImprovedStackImpl(newList);
         stack.remove("Odd");
+        assertEquals("Size of list is incorrect.", 50, stack.size());
         for(int i = 0; i < stack.size(); i++){
             String even = (String) stack.pop().getReturnValue();
-            assertEquals("Not all 'Odd's have been removed.", "Even", even);
+            assertEquals("'Odd' not removed at loop "+ i +".", "Even", even);
         }
     }
     

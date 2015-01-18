@@ -103,6 +103,10 @@ public class FunctionalArrayListTest {
         }
         int headInt = (Integer) myArray.head().getReturnValue();
         assertEquals("Head return value is incorrect.", 10, headInt);
+        for(int i = 0; i < 100; i++){
+            int j = (Integer) myArray.get(i).getReturnValue();
+            assertEquals("Original array has been modified.", (i + 1) * 10, j);
+        }
     }
     
     @Test
@@ -120,6 +124,10 @@ public class FunctionalArrayListTest {
         for(int i = 0; i < 99; i++){
             int result = (Integer) restList.get(i).getReturnValue();
             assertEquals("Rest return value is incorrect.", (i + 2) * 10, result);
+        }
+        for(int i = 0; i < 100; i++){
+            int j = (Integer) myArray.get(i).getReturnValue();
+            assertEquals("Original array has been modified.", (i + 1) * 10, j);
         }
     }
     

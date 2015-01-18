@@ -15,7 +15,7 @@ public class ArrayList implements List {
     public ReturnObject get(int index){
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
-            if(nextFree == 0){
+            if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -30,7 +30,7 @@ public class ArrayList implements List {
     public ReturnObject remove(int index){
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
-            if(nextFree == 0){
+            if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -50,7 +50,7 @@ public class ArrayList implements List {
     public ReturnObject add(int index, Object item){
         if(index < 0 || index > nextFree){
             ReturnObjectImpl error;
-            if(nextFree == 0){
+            if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);

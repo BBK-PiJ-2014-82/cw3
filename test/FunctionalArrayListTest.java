@@ -108,7 +108,7 @@ public class FunctionalArrayListTest {
     @Test
     public void testHeadIsEmpty(){
         ReturnObject returnMsg = myArray.head();
-        assertEquals("Head return value is not empty", ErrorMessage.EMPTY_STRUCTURE, returnMsg.getError());
+        assertEquals("Head return value is not empty.", ErrorMessage.EMPTY_STRUCTURE, returnMsg.getError());
     }
     
     @Test
@@ -121,6 +121,12 @@ public class FunctionalArrayListTest {
             int result = (Integer) restList.get(i).getReturnValue();
             assertEquals("Rest return value is incorrect.", (i + 2) * 10, result);
         }
+    }
+    
+    @Test
+    public void testRestReturnsEmpty(){
+        boolean isEmpty = myArray.isEmpty();
+        assertTrue("The newly created array is not empty.", isEmpty);
     }
     
 }

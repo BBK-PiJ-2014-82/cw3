@@ -6,12 +6,15 @@ public class LinkedList implements List {
     
     public void LinkedList(){}
     
+    @Override
     public boolean isEmpty(){return size == 0;}
     
+    @Override
     public int size(){
         return size;
     }
     
+    @Override
     public ReturnObject get(int index){
         if(index < 0 || index > size){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
@@ -29,6 +32,7 @@ public class LinkedList implements List {
         }
     }
     
+    @Override
     public ReturnObject remove(int index){
         if(index < 0 || index > size){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
@@ -50,6 +54,7 @@ public class LinkedList implements List {
         }
     }
     
+    @Override
     public ReturnObject add(int index, Object item){
         if(item == null){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
@@ -78,6 +83,7 @@ public class LinkedList implements List {
         }
     }
     
+    @Override
     public ReturnObject add(Object item){
         if(item == null){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);

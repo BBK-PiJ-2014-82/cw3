@@ -6,12 +6,15 @@ public class ArrayList implements List {
     
     public void ArrayList(){}
     
+    @Override
     public boolean isEmpty(){return nextFree == 0;}
     
+    @Override
     public int size(){
         if(isEmpty()){return 0;} else {return nextFree;}
     }
     
+    @Override
     public ReturnObject get(int index){
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
@@ -27,6 +30,7 @@ public class ArrayList implements List {
         }
     }
     
+    @Override
     public ReturnObject remove(int index){
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
@@ -47,6 +51,7 @@ public class ArrayList implements List {
         }
     }
     
+    @Override
     public ReturnObject add(int index, Object item){
         if(index < 0 || index > nextFree){
             ReturnObjectImpl error;
@@ -68,6 +73,7 @@ public class ArrayList implements List {
         }
     }
     
+    @Override
     public ReturnObject add(Object item){
         if(item == null){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);

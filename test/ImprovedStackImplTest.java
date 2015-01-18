@@ -16,4 +16,20 @@ public class ImprovedStackImplTest {
         assertFalse("After push Stack is empty.", empty);
     }
     
+    @Test
+    public void testSize(){
+        FunctionalLinkedList newList = new FunctionalLinkedList();
+        for(int i = 0; i < 200; i++){
+            newList.add(i * 10);
+        }
+        stack = new ImprovedStackImpl(newList);
+        int size = stack.size();
+        assertEquals("New Stack is wrong size.", 200, size);
+        for(int i = 100; i > 0; i--){
+            stack.pop();
+        }
+        size = stack.size();
+        assertEquals("Stack is wrong size after popping.", 100, size);
+    }
+    
 }

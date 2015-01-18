@@ -10,7 +10,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     public ImprovedStack reverse() {
         List newList = new ArrayList();
         for(int i = baseList.size()-1; i > -1 ; i--){
-            newList.add(baseList.get(i));
+            newList.add(baseList.get(i).getReturnValue());
         }
         ImprovedStack newStack = new ImprovedStackImpl(newList);
         return newStack;

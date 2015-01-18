@@ -2,6 +2,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
     
     public void FunctionalLinkedList(){}
     
+    @Override
     public ReturnObject head(){
         if(isEmpty()){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -12,6 +13,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
         }
     }
     
+    @Override
     public FunctionalArrayList rest(){
         if(isEmpty()){
             FunctionalArrayList empty = new FunctionalArrayList();

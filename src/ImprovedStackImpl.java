@@ -1,5 +1,11 @@
 public class ImprovedStackImpl implements ImprovedStack {
 
+    List baseList;
+    
+    public ImprovedStackImpl(List list){
+        baseList = list;
+    }
+    
     @Override
     public ImprovedStack reverse() {
         
@@ -12,7 +18,7 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     @Override
     public boolean isEmpty() {
-        
+        return baseList.isEmpty();
     }
 
     @Override

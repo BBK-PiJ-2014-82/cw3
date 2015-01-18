@@ -76,10 +76,12 @@ public class ImprovedStackImplTest {
             newList.add(i * 15);
         }
         stack = new ImprovedStackImpl(newList);
-        stack.reverse();
+        ImprovedStackImpl newStack;
+        newStack = (ImprovedStackImpl) stack.reverse();
+        int j;
         for(int i = 100; i > 0; i--){
-            int j = (Integer) stack.pop().getReturnValue();
-            assertEquals("Numbers are not correct.", i * 15, j);
+            j = (Integer) newStack.pop().getReturnValue();
+            assertEquals("Numbers at loop "+ i +" is not correct.", i * 15, j);
         }
     }
     

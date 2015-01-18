@@ -1,6 +1,6 @@
 public class LinkedList implements List {
     
-    final private Node head = new Node();
+    private Node head;
     private int size = 0;
     private int position = 0;
     
@@ -18,10 +18,8 @@ public class LinkedList implements List {
             return error;
         } else {
             ReturnObjectImpl returnItem;
-            Node runner = head.next;
-            Node previous = head;
+            Node runner = head;
             while(index != position){
-                previous = runner;
                 runner = runner.next;
                 position++;
             }
@@ -37,7 +35,7 @@ public class LinkedList implements List {
             return error;
         } else {
             ReturnObjectImpl returnItem;
-            Node runner = head.next;
+            Node runner = head;
             Node previous = head;
             while(index != position){
                 previous = runner;
@@ -46,8 +44,8 @@ public class LinkedList implements List {
             }
             returnItem = new ReturnObjectImpl(runner.item);
             previous.next = runner.next;
-            size--;
             position = 0;
+            size--;
             return returnItem;
         }
     }
@@ -63,7 +61,7 @@ public class LinkedList implements List {
             } else {
                 Node newNode = new Node();
                 newNode.item = item;
-                Node runner = head.next;
+                Node runner = head;
                 Node previous = head;
                 while(index != position){
                     previous = runner;
@@ -72,8 +70,8 @@ public class LinkedList implements List {
                 }
                 newNode.next = runner;
                 previous.next = newNode;
-                size++;
                 position = 0;
+                size++;
                 ReturnObjectImpl empty = new ReturnObjectImpl();
                 return empty;
             }
@@ -87,13 +85,17 @@ public class LinkedList implements List {
         } else {
             Node newNode = new Node();
             newNode.item = item;
-            Node runner = head;
-            while(runner.next != null){
-                runner = runner.next;
-                position++;
+            if(head == null){
+                head = newNode;
+            } else {
+                Node runner = head;
+                while(runner.next != null){
+                    runner = runner.next;
+                    position++;
+                }
+                runner.next = newNode;
+                position = 0;
             }
-            runner.next = newNode;
-            position = 0;
             size++;
             ReturnObjectImpl empty = new ReturnObjectImpl();
             return empty;

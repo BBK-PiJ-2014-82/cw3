@@ -47,7 +47,11 @@ public class LinkedList implements List {
                 position++;
             }
             returnItem = new ReturnObjectImpl(runner.item);
-            previous.next = runner.next;
+            if(index == 0){
+                head = runner.next;
+            } else {
+                previous.next = runner.next;
+            }
             position = 0;
             size--;
             return returnItem;

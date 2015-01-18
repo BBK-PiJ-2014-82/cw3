@@ -8,7 +8,7 @@ public class ArrayListTest {
     
     @Before
     public void createList(){
-         myArray = new ArrayList();
+        myArray = new ArrayList();
     }
     
     @Test
@@ -53,6 +53,9 @@ public class ArrayListTest {
         int size = myArray.size();
         assertEquals("The value returned is incorrect.", 11, value);
         assertEquals("The size of the List is incorrect.", 19, size);
+        myArray.remove(0);
+        value = (Integer) myArray.get(0).getReturnValue();
+        assertEquals("The value returned is incorrect.", 1, value);
     }
     
     @Test

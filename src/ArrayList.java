@@ -1,6 +1,6 @@
 public class ArrayList implements List {
     
-    private int arraySize = 100;
+    protected int arraySize = 100;
     protected Object[] newList = new Object[arraySize];
     private int nextFree = 0;
     

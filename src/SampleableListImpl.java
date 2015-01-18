@@ -1,21 +1,35 @@
-public class SampleableListImpl extends ArrayList {
+public class SampleableListImpl extends ArrayList implements SampleableList  {
     
-    List sampleList;
+    public SampleableListImpl(){}
     
     public SampleableListImpl(ArrayList list){
-        sampleList = list;
+        for(int i = 0; i < list.size(); i++){
+            add(list.get(i).getReturnValue());
+        }
     }
     
     public SampleableListImpl(LinkedList list){
-        sampleList = list;
+        for(int i = 0; i < list.size(); i++){
+            add(list.get(i).getReturnValue());
+        }
+    }
+    
+    public SampleableListImpl(FunctionalArrayList list){
+        for(int i = 0; i < list.size(); i++){
+            add(list.get(i).getReturnValue());
+        }
+    }
+    
+    public SampleableListImpl(FunctionalLinkedList list){
+        for(int i = 0; i < list.size(); i++){
+            add(list.get(i).getReturnValue());
+        }
     }
     
     public SampleableList sample(){
-        SampleableList returnList = (SampleableList) sampleList; 
-        for(int i = 0; i < sampleList.size(); i++){
-            if(i%2 == 1){
-                sampleList.add(returnList.get(i).getReturnValue());
-            }
+        SampleableListImpl returnList = new SampleableListImpl(); 
+        for(int i = 0; i < size(); i++){
+            if(i%2 == 1){returnList.add(get(i).getReturnValue());}
         }
         return returnList;
     }

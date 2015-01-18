@@ -83,4 +83,22 @@ public class ImprovedStackImplTest {
         }
     }
     
+    @Test
+    public void testRemove(){
+        FunctionalLinkedList newList = new FunctionalLinkedList();
+        for(int i = 1; i < 101; i++){
+            if(i%2 == 1){
+                newList.add("Odd");
+            } else {
+                newList.add("Even");
+            }
+        }
+        stack = new ImprovedStackImpl(newList);
+        stack.remove("Odd");
+        for(int i = 0; i < stack.size(); i++){
+            String even = (String) stack.pop().getReturnValue();
+            assertEquals("Not all 'Odd's have been removed.", "Even", even);
+        }
+    }
+    
 }

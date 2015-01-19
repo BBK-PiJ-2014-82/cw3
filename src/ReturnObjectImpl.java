@@ -15,7 +15,7 @@ public class ReturnObjectImpl implements ReturnObject {
     
     @Override
     public boolean hasError(){
-        return error == null;
+        return !(error == null);
     }
     
     @Override

@@ -2,6 +2,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
     
     public void FunctionalArrayList(){}
     
+    @Override
     public ReturnObject head(){
         if(isEmpty()){
             ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -12,6 +13,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
         }
     }
     
+    @Override
     public FunctionalArrayList rest(){
         if(isEmpty()){
             FunctionalArrayList empty = new FunctionalArrayList();

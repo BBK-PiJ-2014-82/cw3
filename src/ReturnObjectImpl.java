@@ -13,14 +13,12 @@ public class ReturnObjectImpl implements ReturnObject {
         this.error = error;
     }
     
+    @Override
     public boolean hasError(){
-        if(error == null){
-            return false;
-        } else {
-            return true;
-        }
+        return error == null;
     }
     
+    @Override
     public ErrorMessage getError(){
         if(hasError()){
             return error;
@@ -29,6 +27,7 @@ public class ReturnObjectImpl implements ReturnObject {
         }
     }
     
+    @Override
     public Object getReturnValue(){
         if(hasError()){
             return null;

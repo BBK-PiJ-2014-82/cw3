@@ -26,6 +26,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
         }
     }
     
+    @Override
     public SampleableList sample(){
         SampleableListImpl returnList = new SampleableListImpl(); 
         for(int i = 0; i < size(); i++){

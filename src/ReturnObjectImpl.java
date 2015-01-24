@@ -1,14 +1,32 @@
+/**
+ * This is an implementation of the ReturnObject interface.
+ * 
+ * @author James
+ */
 public class ReturnObjectImpl implements ReturnObject {
     
     private Object toReturn;
     private ErrorMessage error;
     
+    /**
+     * Class Constructor for empty Return Object.
+     */
     public ReturnObjectImpl(){}
     
+    /**
+     * Class Constructor with object to wrap inside Return Object.
+     * 
+     * @param item The Object to be wrapped.
+     */
     public ReturnObjectImpl(Object item){
         toReturn = item;
     }
     
+    /**
+     * Class Constructor with error message to wrap inside Return Object.
+     * 
+     * @param error The ErrorMessage to be wrapped.
+     */
     public ReturnObjectImpl(ErrorMessage error){
         this.error = error;
     }

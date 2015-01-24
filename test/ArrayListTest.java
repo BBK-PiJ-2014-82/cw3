@@ -2,6 +2,11 @@ import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * A series of tests to check that the class ArrayList works correctly.
+ * 
+ * @author James
+ */
 public class ArrayListTest {
     
     ArrayList myArray;

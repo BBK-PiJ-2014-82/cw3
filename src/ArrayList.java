@@ -1,9 +1,17 @@
+/**
+ * This is an implementation of the LinkedList interface.
+ * 
+ * @author James
+ */
 public class ArrayList implements List {
     
     protected int arraySize = 100;
     protected Object[] newList = new Object[arraySize];
     private int nextFree = 0;
     
+    /**
+     * Class Constructor creates 100 place array.
+     */
     public void ArrayList(){}
     
     @Override
@@ -87,6 +95,9 @@ public class ArrayList implements List {
         }
     }
     
+    /**
+     * Copies the existing array into an array twice the size.
+     */
     private void increaseSize(){
         Object[] temp = new Object[arraySize * 2];
         System.arraycopy(newList, 0, temp, 0, arraySize );

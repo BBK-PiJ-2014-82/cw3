@@ -1,9 +1,17 @@
+/**
+ * This is an implementation of the List interface.
+ * 
+ * @author James
+ */
 public class LinkedList implements List {
     
     private Node head;
     protected int size = 0;
     private int position = 0;
     
+    /**
+     * Class Constructor.
+     */
     public void LinkedList(){}
     
     @Override
@@ -112,6 +120,9 @@ public class LinkedList implements List {
         }
     }
     
+    /**
+     * Class for nodes of the list that wrap the objects making up the list.
+     */
     private class Node{
         Object item;
         Node next;

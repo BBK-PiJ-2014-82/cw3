@@ -1,5 +1,5 @@
 /**
- * This is an implementation of the LinkedList interface.
+ * This is an implementation of the List interface.
  * 
  * @author James
  */

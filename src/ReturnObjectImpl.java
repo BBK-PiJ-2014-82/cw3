@@ -5,7 +5,14 @@
  */
 public class ReturnObjectImpl implements ReturnObject {
     
+    /**
+     * The wrapper for the object that will be entered into a list.
+     */
     private Object toReturn;
+    
+    /**
+     * The error message that will be returned via this Return Object.
+     */
     private ErrorMessage error;
     
     /**

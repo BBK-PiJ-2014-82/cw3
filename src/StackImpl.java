@@ -1,5 +1,15 @@
+/**
+ * This is an extension of AbstractStack.
+ * 
+ * @author James
+ */
 public class StackImpl extends AbstractStack {
 
+    /**
+     * Class Constructor.
+     * 
+     * @param list 
+     */
     public StackImpl(List list){
         super(list);
     }

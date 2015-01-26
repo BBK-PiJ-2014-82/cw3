@@ -13,7 +13,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     /**
      * Class Constructor for ArrayList.
      * 
-     * @param list 
+     * @param list An ArrayList that will be sampled.
      */
     public SampleableListImpl(ArrayList list){
         for(int i = 0; i < list.size(); i++){
@@ -24,7 +24,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     /**
      * Class Constructor for LinkedList.
      * 
-     * @param list 
+     * @param list A LinkedList that will be sampled.
      */
     public SampleableListImpl(LinkedList list){
         for(int i = 0; i < list.size(); i++){
@@ -35,7 +35,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     /**
      * Class Constructor for FunctionalArrayList.
      * 
-     * @param list 
+     * @param list A FunctionArrayList that will be sampled.
      */
     public SampleableListImpl(FunctionalArrayList list){
         for(int i = 0; i < list.size(); i++){
@@ -45,7 +45,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     
     /** Class Constructor for FunctionalLinkedList.
      * 
-     * @param list 
+     * @param list A FunctionalLinkedList that will be sampled.
      */
     public SampleableListImpl(FunctionalLinkedList list){
         for(int i = 0; i < list.size(); i++){

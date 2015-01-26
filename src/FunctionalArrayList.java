@@ -1,5 +1,13 @@
+/**
+ * This is an implementation of FunctionalList that extends ArrayList
+ * 
+ * @author James
+ */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
     
+    /**
+     * Class Constructor.
+     */
     public void FunctionalArrayList(){}
     
     @Override

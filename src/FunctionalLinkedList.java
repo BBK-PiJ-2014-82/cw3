@@ -1,12 +1,12 @@
 /**
- * This is an implementation of FunctionalList that extends LinkedList
+ * This is an implementation of FunctionalList that extends LinkedList.
  * 
  * @author James
  */
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
     
     /**
-     * Class Constructor
+     * Class Constructor.
      */
     public void FunctionalLinkedList(){}
     

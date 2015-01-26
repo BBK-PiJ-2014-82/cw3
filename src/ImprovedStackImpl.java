@@ -1,7 +1,17 @@
+/**
+ * This is an implementation of ImprovedStack.
+ * 
+ * @author James
+ */
 public class ImprovedStackImpl implements ImprovedStack {
 
     List baseList;
     
+    /**
+     * Class Constructor.
+     * 
+     * @param list 
+     */
     public ImprovedStackImpl(List list){
         baseList = list;
     }

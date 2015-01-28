@@ -1,12 +1,28 @@
 /**
- * This is an implementation of the List interface.
+ * This is an implementation of the List interface using arrays.  The array
+ * is an array of objects that is initially set at size 10 but can resize
+ * later in order to accommodate larger arrays while using only the memory
+ * necessary.
  * 
  * @author James
  */
 public class ArrayList implements List {
     
-    protected int arraySize = 100;
+    /**
+     * The size of the array used to keep track of when the array is full
+     * and needs to be resized.
+     */
+    protected int arraySize = 10;
+    
+    /**
+     * The array which holds the list of objects.
+     */
     protected Object[] newList = new Object[arraySize];
+    
+    /**
+     * The first null position in the array at which new objects can be
+     * entered.
+     */
     private int nextFree = 0;
     
     /**

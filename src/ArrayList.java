@@ -20,8 +20,8 @@ public class ArrayList implements List {
     protected Object[] newList = new Object[arraySize];
     
     /**
-     * The first null position in the array at which new objects can be
-     * entered.
+     * The number of items in the array and also the first null position in the 
+     * array at which a new object can be entered.
      */
     private int nextFree = 0;
     
@@ -34,9 +34,7 @@ public class ArrayList implements List {
     public boolean isEmpty(){return nextFree == 0;}
     
     @Override
-    public int size(){
-        if(isEmpty()){return 0;} else {return nextFree;}
-    }
+    public int size(){return nextFree;}
     
     @Override
     public ReturnObject get(int index){

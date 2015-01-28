@@ -6,12 +6,12 @@
 public class ReturnObjectImpl implements ReturnObject {
     
     /**
-     * The wrapper for the object that will be entered into a list.
+     * The object that is wrapped by this ReturnObject.
      */
     private Object toReturn;
     
     /**
-     * The error message that will be returned via this Return Object.
+     * The error message that will be returned via this ReturnObject.
      */
     private ErrorMessage error;
     
@@ -27,6 +27,7 @@ public class ReturnObjectImpl implements ReturnObject {
      */
     public ReturnObjectImpl(Object item){
         toReturn = item;
+        error = ErrorMessage.NO_ERROR;
     }
     
     /**
@@ -40,16 +41,12 @@ public class ReturnObjectImpl implements ReturnObject {
     
     @Override
     public boolean hasError(){
-        return !(error == null);
+        return !(error == ErrorMessage.NO_ERROR);
     }
     
     @Override
     public ErrorMessage getError(){
-        if(hasError()){
-            return error;
-        } else {
-            return ErrorMessage.NO_ERROR;
-        }
+        return error;
     }
     
     @Override

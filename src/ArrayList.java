@@ -38,8 +38,11 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject get(int index){
+        
+        // Test whether the index is within range.
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
+            // Test whether the list is empty.
             if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
@@ -54,8 +57,11 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject remove(int index){
+        
+        // Test whether the index is within range.
         if(index < 0 || index >= nextFree){
             ReturnObjectImpl error;
+            // Test whether the list is empty.
             if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
@@ -64,9 +70,11 @@ public class ArrayList implements List {
             return error;
         } else {
             ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            // Navigate to the correct object.
             for(int i = index; i < nextFree-1; i++){
                 newList[i] = newList[i+1];
             }
+            // Resize the list.
             newList[nextFree-1] = null;
             nextFree -= 1;
             return returnItem;
@@ -75,8 +83,10 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject add(int index, Object item){
+        // Test whether the index is within range.
         if(index < 0 || index > nextFree){
             ReturnObjectImpl error;
+            // Test whether the list is empty.
             if(nextFree != 0){
                 error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {

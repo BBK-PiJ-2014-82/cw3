@@ -38,19 +38,13 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject get(int index){
-        
+        ReturnObject returnItem;
+        returnItem = checkIndex(index);
         // Test whether the index is within range.
-        if(index < 0 || index >= nextFree){
-            ReturnObjectImpl error;
-            // Test whether the list is empty.
-            if(nextFree != 0){
-                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-            } else {
-                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-            }
-            return error;
+        if(returnItem.hasError()){
+            return returnItem;
         } else {
-            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            returnItem = new ReturnObjectImpl(newList[index]);
             return returnItem;
         }
     }
@@ -127,5 +121,23 @@ public class ArrayList implements List {
         System.arraycopy(newList, 0, temp, 0, arraySize );
         newList = temp;
         arraySize = arraySize * 2;
+    }
+    
+    /**
+     * Checks the index is within a valid range.
+     */
+    private ReturnObject checkIndex(int index){
+        ReturnObjectImpl error;
+        if(index < 0 || index >= nextFree){    
+            // Test whether the list is empty.
+            if(nextFree != 0){
+                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            }
+        } else {
+            error = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        }
+        return error;
     }
 }

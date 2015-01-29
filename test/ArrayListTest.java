@@ -32,18 +32,18 @@ public class ArrayListTest {
     
     @Test
     public void testGet(){
-        // Test removing an object from empty array.
+        // Test getting an object from empty array.
         ErrorMessage error = myArray.get(10).getError();
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 Integer objects.
         for(int i = 0; i < 20; i++){myArray.add(i);}
         
-        // Test removing the object at index 10.
+        // Test getting the object at index 10.
         Integer result = (Integer) myArray.get(10).getReturnValue();
         assertEquals("Incorrect value returned.", (Integer)10, result);
         
-        // Test removing an out of bounds index number.
+        // Test getting an out of bounds index number.
         error = myArray.get(100).getError();
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
     }
@@ -59,27 +59,36 @@ public class ArrayListTest {
     
     @Test
     public void testRemove(){
+        // Test getting an object from empty array.
+        ErrorMessage error = myArray.remove(10).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
+        
+        // Add 20 items to the list.
         for(int i = 0; i < 20; i++){
             myArray.add(i);
         }
+        
+        // Check the correct value & size are returned.
         myArray.remove(10);
         int value = (Integer) myArray.get(10).getReturnValue();
         int size = myArray.size();
         assertEquals("The value returned is incorrect.", 11, value);
         assertEquals("The size of the List is incorrect.", 19, size);
+        
+        // Check removing the first position.
         myArray.remove(0);
         value = (Integer) myArray.get(0).getReturnValue();
         assertEquals("The value returned is incorrect.", 1, value);
-    }
-    
-    @Test
-    public void testRemoveUntilDeleted(){
-        for(int i = 0; i < 20; i++){
-            myArray.add(i);
-        }
-        for(int i = 20; i > 0; i--){
+        
+        // Test removing an out of bounds index number.
+        error = myArray.remove(100).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
+        
+        // Remove remaining objects.
+        for(int i = 18; i > 0; i--){
             myArray.remove(0);
         }
+        // Test list is empty after objects removed.
         boolean result = myArray.isEmpty();
         assertTrue("The List is not empty.", result);
     }

@@ -19,11 +19,10 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
         ReturnObject returnItem;
         if(isEmpty()){
             returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
-            return returnItem;
         } else {
             returnItem = new ReturnObjectImpl(newList[0]);
-            return returnItem;
         }
+        return returnItem;
     }
     
     @Override

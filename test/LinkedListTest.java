@@ -64,7 +64,7 @@ public class LinkedListTest {
     
     @Test
     public void testRemove(){
-        // Test getting an object from empty array.
+        // Test getting an object from empty list.
         ErrorMessage error = myArray.remove(10).getError();
         assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
         
@@ -120,14 +120,29 @@ public class LinkedListTest {
     
     @Test
     public void testAddingWithIndex(){
+        // Test adding an object to empty array.
+        ErrorMessage error = myArray.add(10, 3000).getError();
+        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        
+        // Add 20 items.
         for(int i = 0; i < 20; i++){
             myArray.add(i);
         }
+        
+        // attempt adding an item into position 10.
         myArray.add(10, 3000);
         int size = myArray.size();
         int value = (Integer) myArray.get(10).getReturnValue();
         assertEquals("List size is incorrect.", 21, size);
         assertEquals("Returned value is incorrect.", 3000, value);
+        
+        // Test adding an out of bounds index number.
+        error = myArray.add(100, 3000).getError();
+        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
+        
+        // Test adding a null object.
+        error = myArray.add(1, null).getError();
+        assertEquals("Incorrect error " + error + " returned.", INVALID_ARGUMENT, error);
     }
     
     @Test

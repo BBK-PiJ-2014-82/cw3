@@ -51,20 +51,14 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject remove(int index){
-        
+        ReturnObject returnItem;
+        returnItem = checkIndex(index);
         // Test whether the index is within range.
-        if(index < 0 || index >= nextFree){
-            ReturnObjectImpl error;
-            // Test whether the list is empty.
-            if(nextFree != 0){
-                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-            } else {
-                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-            }
-            return error;
+        if(returnItem.hasError()){
+            return returnItem;
         } else {
-            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
-            // Navigate to the correct object.
+            returnItem = new ReturnObjectImpl(newList[index]);
+            // Repace the removed object with next object & move all others down.
             for(int i = index; i < nextFree-1; i++){
                 newList[i] = newList[i+1];
             }

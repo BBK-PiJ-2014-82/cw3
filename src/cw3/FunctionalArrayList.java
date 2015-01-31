@@ -1,5 +1,7 @@
 package cw3;
 
+import static cw3.ErrorMessage.*;
+
 /**
  * This is an implementation of FunctionalList that extends ArrayList
  * 
@@ -14,11 +16,12 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
     
     @Override
     public ReturnObject head(){
+        ReturnObject returnItem;
         if(isEmpty()){
-            ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-            return error;
+            returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
+            return returnItem;
         } else {
-            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[0]);
+            returnItem = new ReturnObjectImpl(newList[0]);
             return returnItem;
         }
     }

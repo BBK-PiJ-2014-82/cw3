@@ -1,5 +1,7 @@
 package cw3;
 
+import static cw3.ErrorMessage.*;
+
 /**
  * This is an implementation of the List interface using arrays.  The array
  * is an array of objects that is initially set at size 10 but can resize
@@ -144,12 +146,12 @@ public class ArrayList implements List {
         if(index < 0 || index >= nextFree){    
             // Test whether the list is empty.
             if(nextFree != 0){
-                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+                error = new ReturnObjectImpl(INDEX_OUT_OF_BOUNDS);
             } else {
-                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+                error = new ReturnObjectImpl(EMPTY_STRUCTURE);
             }
         } else {
-            error = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            error = new ReturnObjectImpl(NO_ERROR);
         }
         return error;
     }
@@ -163,9 +165,9 @@ public class ArrayList implements List {
     private ReturnObject checkNull(Object item){
         ReturnObjectImpl error;
         if(item == null){
-            error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+            error = new ReturnObjectImpl(INVALID_ARGUMENT);
         } else {
-            error = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            error = new ReturnObjectImpl(NO_ERROR);
         }
         return error;
     }

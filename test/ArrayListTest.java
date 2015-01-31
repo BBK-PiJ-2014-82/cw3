@@ -1,3 +1,5 @@
+import cw3.ErrorMessage;
+import cw3.ArrayList;
 import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -27,6 +29,10 @@ public class ArrayListTest {
         myArray.add(1);
         boolean result = myArray.isEmpty();
         assertFalse("New List is empty after add().", result);
+        
+        // Test adding a null object.
+        ErrorMessage error = myArray.add(null).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INVALID_ARGUMENT, error);
     }
     
     @Test
@@ -129,6 +135,10 @@ public class ArrayListTest {
         // Test adding an out of bounds index number.
         error = myArray.add(100, 3000).getError();
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
+        
+        // Test adding a null object.
+        error = myArray.add(1, null).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INVALID_ARGUMENT, error);
     }
     
     @Test

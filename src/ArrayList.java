@@ -123,10 +123,12 @@ public class ArrayList implements List {
      * Copies the existing array into an array half the size.
      */
     private void decreaseSize(){
-        Object[] temp = new Object[arraySize / 2];
-        System.arraycopy(newList, 0, temp, 0, arraySize / 2);
-        newList = temp;
-        arraySize = newList.length;
+        if(arraySize / 2 >= 10){
+            Object[] temp = new Object[arraySize / 2];
+            System.arraycopy(newList, 0, temp, 0, nextFree-1);
+            newList = temp;
+            arraySize = newList.length;
+        }
     }
     
     /**

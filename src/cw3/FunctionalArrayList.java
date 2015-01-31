@@ -28,11 +28,12 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
     
     @Override
     public FunctionalArrayList rest(){
+        FunctionalArrayList returnList;
         if(isEmpty()){
-            FunctionalArrayList empty = new FunctionalArrayList();
-            return empty;
+            returnList = new FunctionalArrayList();
+            return returnList;
         } else {
-            FunctionalArrayList returnList = new FunctionalArrayList();
+            returnList = new FunctionalArrayList();
             for(int i = 1; i < arraySize; i++){
                 Object addItem = get(i).getReturnValue();
                 returnList.add(addItem);

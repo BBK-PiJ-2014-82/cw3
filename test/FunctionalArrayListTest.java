@@ -41,6 +41,11 @@ public class FunctionalArrayListTest {
     public void testRest(){
         FunctionalList restList;
         
+        // Check 'rest' applied to empty list returns empty list.
+        restList = myArray.rest();
+        boolean empty = restList.isEmpty();
+        assertTrue("The returned list is not empty.", empty);
+        
         // Add 100 objects into the list.
         for(int i = 0; i < 100; i++){
             myArray.add((i + 1) * 10);

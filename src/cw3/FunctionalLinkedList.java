@@ -1,5 +1,7 @@
 package cw3;
 
+import static cw3.ErrorMessage.*;
+
 /**
  * This is an implementation of FunctionalList that extends LinkedList.
  * 
@@ -14,28 +16,28 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
     
     @Override
     public ReturnObject head(){
+        ReturnObject returnItem;
         if(isEmpty()){
-            ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-            return error;
+            returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
         } else {
-            ReturnObjectImpl returnItem = new ReturnObjectImpl(get(0).getReturnValue());
-            return returnItem;
+            returnItem = new ReturnObjectImpl(get(0).getReturnValue());
         }
+        return returnItem;
     }
     
     @Override
-    public FunctionalArrayList rest(){
+    public FunctionalList rest(){
+        FunctionalLinkedList returnList;
         if(isEmpty()){
-            FunctionalArrayList empty = new FunctionalArrayList();
-            return empty;
+            returnList = new FunctionalLinkedList();
         } else {
-            FunctionalArrayList returnList = new FunctionalArrayList();
+            returnList = new FunctionalLinkedList();
             for(int i = 1; i < size; i++){
                 Object addItem = get(i).getReturnValue();
                 returnList.add(addItem);
             }
-            return returnList;
         }
+        return returnList;
     }
     
 }

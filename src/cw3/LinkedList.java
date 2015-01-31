@@ -125,9 +125,10 @@ public class LinkedList implements List {
     
     @Override
     public ReturnObject add(Object item){
+        ReturnObject returnItem;
         if(item == null){
-            ReturnObjectImpl error = new ReturnObjectImpl(INVALID_ARGUMENT);
-            return error;
+            returnItem = new ReturnObjectImpl(INVALID_ARGUMENT);
+            return returnItem;
         } else {
             Node newNode = new Node();
             newNode.item = item;
@@ -143,8 +144,8 @@ public class LinkedList implements List {
                 position = 0;
             }
             size++;
-            ReturnObjectImpl empty = new ReturnObjectImpl();
-            return empty;
+            returnItem = new ReturnObjectImpl();
+            return returnItem;
         }
     }
     

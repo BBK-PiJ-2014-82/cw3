@@ -1,7 +1,10 @@
+import cw3.ErrorMessage;
 import cw3.LinkedList;
 import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import static cw3.ErrorMessage.*;
 
 public class LinkedListTest {
     
@@ -9,7 +12,7 @@ public class LinkedListTest {
     
     @Before
     public void createList(){
-         myArray = new LinkedList();
+        myArray = new LinkedList();
     }
     
     @Test
@@ -20,10 +23,14 @@ public class LinkedListTest {
     
     @Test
     public void testAddObject(){
-        Integer i = 100;
-        myArray.add(i);
+        // Test adding integer.
+        myArray.add(100);
         boolean result = myArray.isEmpty();
         assertFalse("New List is empty after add().", result);
+        
+        // Test adding a null object.
+        ErrorMessage error = myArray.add(null).getError();
+        assertEquals("Incorrect error " + error + " returned.", INVALID_ARGUMENT, error);
     }
     
     @Test

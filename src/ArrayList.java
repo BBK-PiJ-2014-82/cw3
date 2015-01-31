@@ -58,6 +58,7 @@ public class ArrayList implements List {
             return returnItem;
         } else {
             returnItem = new ReturnObjectImpl(newList[index]);
+            if(nextFree-1 < arraySize/2){decreaseSize();}
             // Repace the removed object with next object & move all others down.
             for(int i = index; i < nextFree-1; i++){
                 newList[i] = newList[i+1];
@@ -113,9 +114,19 @@ public class ArrayList implements List {
      */
     private void increaseSize(){
         Object[] temp = new Object[arraySize * 2];
-        System.arraycopy(newList, 0, temp, 0, arraySize );
+        System.arraycopy(newList, 0, temp, 0, arraySize);
         newList = temp;
-        arraySize = arraySize * 2;
+        arraySize = newList.length;
+    }
+    
+    /**
+     * Copies the existing array into an array half the size.
+     */
+    private void decreaseSize(){
+        Object[] temp = new Object[arraySize / 2];
+        System.arraycopy(newList, 0, temp, 0, nextFree);
+        newList = temp;
+        arraySize = newList.length;
     }
     
     /**

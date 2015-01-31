@@ -1,3 +1,5 @@
+import cw3.ImprovedStackImpl;
+import cw3.FunctionalLinkedList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

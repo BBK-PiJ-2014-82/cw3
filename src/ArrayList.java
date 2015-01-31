@@ -71,23 +71,18 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject add(int index, Object item){
+        ReturnObject returnItem;
+        returnItem = checkIndex(index);
         // Test whether the index is within range.
-        if(index < 0 || index > nextFree){
-            ReturnObjectImpl error;
-            // Test whether the list is empty.
-            if(nextFree != 0){
-                error = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-            } else {
-                error = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-            }
-            return error;
+        if(returnItem.hasError()){
+            return returnItem;
         } else {
             if(nextFree+1 > arraySize){increaseSize();}
             for(int i = nextFree; i > index; i--){
                 newList[i] = newList[i-1];
             }
             nextFree += 1;
-            ReturnObjectImpl returnItem = new ReturnObjectImpl(newList[index]);
+            returnItem = new ReturnObjectImpl(newList[index]);
             newList[index] = item;
             return returnItem;
         }

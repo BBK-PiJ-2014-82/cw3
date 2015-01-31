@@ -61,11 +61,15 @@ public class LinkedList implements List {
     
     @Override
     public ReturnObject remove(int index){
+        ReturnObject returnItem;
         if(index < 0 || index > size){
-            ReturnObjectImpl error = new ReturnObjectImpl(INDEX_OUT_OF_BOUNDS);
-            return error;
+            if(size == 0){
+                returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
+            } else {
+                returnItem = new ReturnObjectImpl(INDEX_OUT_OF_BOUNDS);
+            }
+            return returnItem;
         } else {
-            ReturnObjectImpl returnItem;
             Node runner = head;
             Node previous = head;
             while(index != position){

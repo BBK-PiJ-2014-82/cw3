@@ -72,8 +72,13 @@ public class ArrayList implements List {
     @Override
     public ReturnObject add(int index, Object item){
         ReturnObject returnItem;
+        // Test the index is within range.
         returnItem = checkIndex(index);
-        // Test whether the index is within range.
+        if(returnItem.hasError()){
+            return returnItem;
+        }
+        // Test the item is not null.
+        returnItem = checkNull(item);
         if(returnItem.hasError()){
             return returnItem;
         } else {
@@ -116,8 +121,8 @@ public class ArrayList implements List {
     /**
      * Checks the index is within a valid range.
      * 
-     * @param index
-     * @return
+     * @param index the index to be tested.
+     * @return a wrapper containing the error message that needs to be returned.
      */
     private ReturnObject checkIndex(int index){
         ReturnObjectImpl error;
@@ -135,10 +140,10 @@ public class ArrayList implements List {
     }
     
     /**
-     * Checks whether the Object is null.
+     * Tests whether the Object provided is null.
      * 
-     * @param item
-     * @return 
+     * @param item the object to be tested.
+     * @return a wrapper containing the error message that needs to be returned.
      */
     private ReturnObject checkNull(Object item){
         ReturnObjectImpl error;

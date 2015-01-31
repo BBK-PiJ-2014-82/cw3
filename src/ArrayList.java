@@ -26,7 +26,7 @@ public class ArrayList implements List {
     private int nextFree = 0;
     
     /**
-     * Class Constructor creates 100 place array.
+     * Class Constructor creates array.
      */
     public void ArrayList(){}
     
@@ -58,7 +58,6 @@ public class ArrayList implements List {
             return returnItem;
         } else {
             returnItem = new ReturnObjectImpl(newList[index]);
-            if(nextFree-1 < arraySize/2){decreaseSize();}
             // Repace the removed object with next object & move all others down.
             for(int i = index; i < nextFree-1; i++){
                 newList[i] = newList[i+1];
@@ -66,6 +65,7 @@ public class ArrayList implements List {
             // Resize the list.
             newList[nextFree-1] = null;
             nextFree -= 1;
+            if(nextFree < arraySize/2){decreaseSize();}
             return returnItem;
         }
     }
@@ -124,7 +124,7 @@ public class ArrayList implements List {
      */
     private void decreaseSize(){
         Object[] temp = new Object[arraySize / 2];
-        System.arraycopy(newList, 0, temp, 0, nextFree);
+        System.arraycopy(newList, 0, temp, 0, arraySize / 2);
         newList = temp;
         arraySize = newList.length;
     }
@@ -164,6 +164,15 @@ public class ArrayList implements List {
             error = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
         return error;
+    }
+    
+    /**
+     * Returns the size of the array for checking memory use purposes.
+     * 
+     * @return The length of this array of objects.
+     */
+    public int returnArrayLength(){
+        return newList.length;
     }
     
 }

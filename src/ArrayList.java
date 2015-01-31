@@ -90,15 +90,16 @@ public class ArrayList implements List {
     
     @Override
     public ReturnObject add(Object item){
-        if(item == null){
-            ReturnObjectImpl error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-            return error;
+        ReturnObject returnItem;
+        returnItem = checkNull(item);
+        if(returnItem.hasError()){
+            return returnItem;
         } else {
             if(nextFree+1 > arraySize){increaseSize();}
             newList[nextFree] = item;
             nextFree += 1;
-            ReturnObjectImpl empty = new ReturnObjectImpl();
-            return empty;
+            returnItem = new ReturnObjectImpl();
+            return returnItem;
         }
     }
     
@@ -114,6 +115,9 @@ public class ArrayList implements List {
     
     /**
      * Checks the index is within a valid range.
+     * 
+     * @param index
+     * @return
      */
     private ReturnObject checkIndex(int index){
         ReturnObjectImpl error;
@@ -129,4 +133,21 @@ public class ArrayList implements List {
         }
         return error;
     }
+    
+    /**
+     * Checks whether the Object is null.
+     * 
+     * @param item
+     * @return 
+     */
+    private ReturnObject checkNull(Object item){
+        ReturnObjectImpl error;
+        if(item == null){
+            error = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+        } else {
+            error = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        }
+        return error;
+    }
+    
 }

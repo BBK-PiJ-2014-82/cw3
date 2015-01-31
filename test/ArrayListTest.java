@@ -88,6 +88,7 @@ public class ArrayListTest {
         for(int i = 18; i > 0; i--){
             myArray.remove(0);
         }
+        
         // Test list is empty after objects removed.
         boolean result = myArray.isEmpty();
         assertTrue("The List is not empty.", result);
@@ -104,14 +105,25 @@ public class ArrayListTest {
     
     @Test
     public void testAddingWithIndex(){
+        // Test adding an object to empty array.
+        ErrorMessage error = myArray.add(10, 3000).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
+        
+        // Add 20 objects.
         for(int i = 0; i < 20; i++){
             myArray.add(i);
         }
+        
+        // Test adding an object into position 10.
         myArray.add(10, 3000);
         int size = myArray.size();
         int value = (Integer) myArray.get(10).getReturnValue();
         assertEquals("List size is incorrect.", 21, size);
         assertEquals("Returned value is incorrect.", 3000, value);
+        
+        // Test adding an out of bounds index number.
+        error = myArray.add(100, 3000).getError();
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
     }
     
     @Test

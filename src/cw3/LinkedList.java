@@ -91,13 +91,18 @@ public class LinkedList implements List {
     
     @Override
     public ReturnObject add(int index, Object item){
+        ReturnObject returnItem;
         if(item == null){
-            ReturnObjectImpl error = new ReturnObjectImpl(INVALID_ARGUMENT);
-            return error;
+            returnItem = new ReturnObjectImpl(INVALID_ARGUMENT);
+            return returnItem;
         } else {
             if(index < 0 || index > size){
-                ReturnObjectImpl error = new ReturnObjectImpl(INDEX_OUT_OF_BOUNDS);
-                return error;
+                if(size == 0){
+                    returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
+                } else {
+                    returnItem = new ReturnObjectImpl(INDEX_OUT_OF_BOUNDS);
+                }
+                return returnItem;
             } else {
                 Node newNode = new Node();
                 newNode.item = item;
@@ -112,8 +117,8 @@ public class LinkedList implements List {
                 previous.next = newNode;
                 position = 0;
                 size++;
-                ReturnObjectImpl empty = new ReturnObjectImpl();
-                return empty;
+                returnItem = new ReturnObjectImpl();
+                return returnItem;
             }
         }
     }

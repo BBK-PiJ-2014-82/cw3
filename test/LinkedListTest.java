@@ -64,17 +64,37 @@ public class LinkedListTest {
     
     @Test
     public void testRemove(){
+        // Test getting an object from empty array.
+        ErrorMessage error = myArray.remove(10).getError();
+        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        
+        // Add 20 objects.
         for(int i = 0; i < 20; i++){
             myArray.add(i);
         }
+        
+        // Check the correct values & size are returned.
         myArray.remove(10);
         int value = (Integer) myArray.get(10).getReturnValue();
         int size = myArray.size();
         assertEquals("The value returned is incorrect.", 11, value);
         assertEquals("The size of the List is incorrect.", 19, size);
+        
+        // Check removing the first position.
         myArray.remove(0);
         value = (Integer) myArray.get(0).getReturnValue();
         assertEquals("The value returned is incorrect.", 1, value);
+        
+        // Test removing an out of bounds index number.
+        error = myArray.remove(100).getError();
+        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
+        
+        // Remove remaining objects.
+        for(int i = 18; i > 0; i--){myArray.remove(0);}
+        
+        // Test list is empty after objects removed.
+        boolean result = myArray.isEmpty();
+        assertTrue("The List is not empty.", result);
     }
     
     @Test

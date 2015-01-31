@@ -3,7 +3,7 @@ package cw3;
 import static cw3.ErrorMessage.*;
 
 /**
- * This is an implementation of FunctionalList that extends ArrayList
+ * This is an implementation of FunctionalList that extends ArrayList.
  * 
  * @author James
  */

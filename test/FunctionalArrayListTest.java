@@ -8,7 +8,7 @@ import cw3.FunctionalList;
 
 public class FunctionalArrayListTest {
     
-    FunctionalArrayList myArray;
+    FunctionalList myArray;
     
     @Before
     public void createList(){

@@ -35,11 +35,22 @@ public class LinkedListTest {
     
     @Test
     public void testGet(){
+        // Test getting an object from empty array.
+        ErrorMessage error = myArray.get(10).getError();
+        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        
+        // Add 20 objects.
         for(int i = 0; i < 20; i++){
             myArray.add(i);
         }
+        
+        // Test getting the object at element 10.
         Integer result = (Integer) myArray.get(10).getReturnValue();
         assertEquals("Incorrect value returned.", (Integer)10, result);
+        
+        // Test getting an out of bounds index number.
+        error = myArray.get(100).getError();
+        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
     }
     
     @Test

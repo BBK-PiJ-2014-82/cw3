@@ -24,8 +24,7 @@ public class ArrayListTest {
     
     @Test
     public void testAddObject(){
-        Integer i = 100;
-        myArray.add(i);
+        myArray.add(1);
         boolean result = myArray.isEmpty();
         assertFalse("New List is empty after add().", result);
     }
@@ -64,9 +63,7 @@ public class ArrayListTest {
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 items to the list.
-        for(int i = 0; i < 20; i++){
-            myArray.add(i);
-        }
+        for(int i = 0; i < 20; i++){myArray.add(i);}
         
         // Check the correct value & size are returned.
         myArray.remove(10);
@@ -85,9 +82,7 @@ public class ArrayListTest {
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
         
         // Remove remaining objects.
-        for(int i = 18; i > 0; i--){
-            myArray.remove(0);
-        }
+        for(int i = 18; i > 0; i--){myArray.remove(0);}
         
         // Test list is empty after objects removed.
         boolean result = myArray.isEmpty();
@@ -95,12 +90,24 @@ public class ArrayListTest {
     }
     
     @Test
-    public void testAddMoreThanArraySize(){
-        for(int i = 0; i < 250; i++){
-            myArray.add(i);
-        }
+    public void testIncreaseDecreaseArraySize(){
+        // add more items than initial array holds.
+        for(int i = 0; i < 250; i++){myArray.add(i);}
+        
+        // check the array size is now correct.
         int result = myArray.size();
+        int aLength = myArray.returnArrayLength();
         assertEquals("List size is incorrect.", 250, result);
+        assertEquals("Array length is incorrect.", 320, aLength);
+        
+        // remove 200 items.
+        for(int i = 250; i > 50; i--){myArray.remove(0);}
+        
+        // check the array size is now correct.
+        result = myArray.size();
+        aLength = myArray.returnArrayLength();
+        assertEquals("List size is incorrect.", 50, result);
+        assertEquals("Array length is incorrect.", 80, aLength);
     }
     
     @Test
@@ -110,9 +117,7 @@ public class ArrayListTest {
         assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 objects.
-        for(int i = 0; i < 20; i++){
-            myArray.add(i);
-        }
+        for(int i = 0; i < 20; i++){myArray.add(i);}
         
         // Test adding an object into position 10.
         myArray.add(10, 3000);

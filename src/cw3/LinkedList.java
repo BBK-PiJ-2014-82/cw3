@@ -7,8 +7,19 @@ package cw3;
  */
 public class LinkedList implements List {
     
+    /**
+     * This is the head node of the LinkedList.
+     */
     private Node head;
+    
+    /**
+     * This integer records the size of the LinkedList.
+     */
     protected int size = 0;
+    
+    /**
+     * This integer records the current position while traversing the list.
+     */
     private int position = 0;
     
     /**

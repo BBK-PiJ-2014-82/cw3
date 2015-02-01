@@ -57,9 +57,9 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     
     @Override
     public SampleableList sample(){
-        SampleableListImpl returnList = new SampleableListImpl(); 
+        SampleableList returnList = new SampleableListImpl(); 
         for(int i = 0; i < size(); i++){
-            if(i%2 == 1){returnList.add(get(i).getReturnValue());}
+            if(i%2 == 0){returnList.add(get(i).getReturnValue());}
         }
         return returnList;
     }

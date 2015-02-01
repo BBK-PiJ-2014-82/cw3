@@ -51,17 +51,21 @@ public class ImprovedStackImplTest {
     public void testPush(){
         // Create new stack.
         FunctionalLinkedList newList = new FunctionalLinkedList();
-        for(int i = 0; i < 100; i++){
-            newList.add(i * 10);
-        }
         stack = new ImprovedStackImpl(newList);
         
         // Push elements onto new stack and check size.
-        for(int i = 100; i < 200; i++){
+        for(int i = 1; i < 201; i++){
             stack.push(i * 10);
         }
         int size = stack.size();
         assertEquals("New Stack is wrong size.", 200, size);
+        
+        // Check pushed elements are correct.
+        int j;
+        for(int i = 200; i > 0; i--){
+            j = (Integer) stack.pop().getReturnValue();
+            assertEquals("Elements are not correct.", i * 10, j);
+        }
     }
     
     @Test
@@ -116,22 +120,27 @@ public class ImprovedStackImplTest {
     
     @Test
     public void testReverse(){
+        // Create reversed stack.
         FunctionalLinkedList newList = new FunctionalLinkedList();
-        for(int i = 1; i < 101; i++){
-            newList.add(i * 15);
-        }
         stack = new ImprovedStackImpl(newList);
-        ImprovedStackImpl newStack;
-        newStack = (ImprovedStackImpl) stack.reverse();
-        int j;
-        for(int i = 100; i > 0; i--){
-            j = (Integer) newStack.pop().getReturnValue();
-            assertEquals("Numbers at loop "+ i +" is not correct.", i * 15, j);
+        for(int i = 1; i < 101; i++){
+            stack.push(i * 10);
+        }
+        ImprovedStack newStack = stack.reverse();
+        
+        // Check size of reversed stack.
+        int size = newStack.size();
+        assertEquals("The size of the stack is incorrect.", 100, size);
+        
+        // Test the new stack has correct order of information.
+        for(int i = 1; i < 101; i++){
+            assertEquals("Number at loop "+ i +" is not correct.", i * 10, newStack.pop().getReturnValue());
         }
     }
     
     @Test
     public void testRemove(){
+        // Create a list with 2 sets of elements.
         FunctionalLinkedList newList = new FunctionalLinkedList();
         for(int i = 1; i < 101; i++){
             if(i%2 == 1){
@@ -141,10 +150,13 @@ public class ImprovedStackImplTest {
             }
         }
         stack = new ImprovedStackImpl(newList);
+        
+        // Remove one set of elements & check size.
         stack.remove("Odd");
         assertEquals("Size of list is incorrect.", 50, stack.size());
+        String even;
         for(int i = 0; i < stack.size(); i++){
-            String even = (String) stack.pop().getReturnValue();
+            even = (String) stack.pop().getReturnValue();
             assertEquals("'Odd' not removed at loop "+ i +".", "Even", even);
         }
     }

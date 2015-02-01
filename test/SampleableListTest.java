@@ -10,6 +10,21 @@ import static org.junit.Assert.*;
 public class SampleableListTest {
     
     @Test
+    public void testEmptyList(){
+        // Create an empty list.
+        ArrayList myList = new ArrayList();
+        
+        // Create sample of the initial list.
+        SampleableList newList;
+        newList = new SampleableListImpl(myList);
+        newList = newList.sample();
+        
+        // Check the new list is empty.
+        boolean sizeCheck = newList.size() == 0;
+        assertTrue("The new list is not empty.", sizeCheck);
+    }
+    
+    @Test
     public void SampleArrayListTest(){
         // Create initial list to be sampled.
         ArrayList myList = new ArrayList();

@@ -27,11 +27,8 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
     
     @Override
     public FunctionalList rest(){
-        FunctionalList returnList;
-        if(isEmpty()){
-            returnList = new FunctionalArrayList();
-        } else {
-            returnList = new FunctionalArrayList();
+        FunctionalList returnList = new FunctionalArrayList();
+        if(!this.isEmpty()){
             // Copy all items apart from head into new list.
             for(int i = 1; i < arraySize; i++){
                 Object addItem = get(i).getReturnValue();

@@ -125,7 +125,7 @@ public class ArrayList implements List {
     private void decreaseSize(){
         if(arraySize / 2 >= 10){
             Object[] temp = new Object[arraySize / 2];
-            System.arraycopy(newList, 0, temp, 0, nextFree-1);
+            System.arraycopy(newList, 0, temp, 0, nextFree);
             newList = temp;
             arraySize = newList.length;
         }

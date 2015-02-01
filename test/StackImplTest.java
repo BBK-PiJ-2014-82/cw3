@@ -87,11 +87,11 @@ public class StackImplTest {
     @Test
     public void testPop(){
         // Create a new list.
-        FunctionalLinkedList newList = new FunctionalLinkedList();
-        for(int i = 1; i < 101; i++){
-            newList.add(i * 10);
-        }
+        FunctionalLinkedList newList = new FunctionalLinkedList();        
         stack = new StackImpl(newList);
+        for(int i = 1; i < 101; i++){
+            stack.push(i * 10);
+        }
         
         // Check that popping an element leave the correct element on top.
         stack.pop();

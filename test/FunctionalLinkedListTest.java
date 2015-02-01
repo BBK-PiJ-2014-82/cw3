@@ -39,14 +39,22 @@ public class FunctionalLinkedListTest {
     
     @Test
     public void testRest(){
+        FunctionalList restList;
+        
+        // Add 100 objects to the array.
         for(int i = 0; i < 100; i++){
             myArray.add((i + 1) * 10);
         }
-        FunctionalLinkedList restList = myArray.rest();
+        
+        // Check that the correct array is returned.
+        restList = myArray.rest();
+        assertEquals("Rest returned size is incorrect", 99, restList.size());
         for(int i = 0; i < 99; i++){
             int result = (Integer) restList.get(i).getReturnValue();
             assertEquals("Rest return value is incorrect.", (i + 2) * 10, result);
         }
+        
+        // Check that original array hasn't been modified.
         for(int i = 0; i < 100; i++){
             int j = (Integer) myArray.get(i).getReturnValue();
             assertEquals("Original array has been modified.", (i + 1) * 10, j);

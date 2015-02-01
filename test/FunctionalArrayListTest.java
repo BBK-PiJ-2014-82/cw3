@@ -65,10 +65,4 @@ public class FunctionalArrayListTest {
         }
     }
     
-    @Test
-    public void testReturnsEmpty(){
-        boolean isEmpty = myArray.isEmpty();
-        assertTrue("The newly created array is not empty.", isEmpty);
-    }
-    
 }

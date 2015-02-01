@@ -1,5 +1,7 @@
 package cw3;
 
+import static cw3.ErrorMessage.*;
+
 /**
  * This is an extension of AbstractStack.
  * 
@@ -34,7 +36,7 @@ public class StackImpl extends AbstractStack {
     @Override
     public ReturnObject top() {
         if(internalList.isEmpty()){
-            ReturnObjectImpl empty = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            ReturnObjectImpl empty = new ReturnObjectImpl(EMPTY_STRUCTURE);
             return empty;
         } else {
             ReturnObjectImpl item = new ReturnObjectImpl(internalList.get(0).getReturnValue());
@@ -45,7 +47,7 @@ public class StackImpl extends AbstractStack {
     @Override
     public ReturnObject pop() {
         if(internalList.isEmpty()){
-            ReturnObjectImpl empty = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            ReturnObjectImpl empty = new ReturnObjectImpl(EMPTY_STRUCTURE);
             return empty;
         } else {
             ReturnObjectImpl item = new ReturnObjectImpl(internalList.remove(0).getReturnValue());

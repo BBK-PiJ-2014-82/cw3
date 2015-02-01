@@ -17,6 +17,10 @@ public class FunctionalLinkedListTest {
     
     @Test
     public void testHead(){
+        // Check attempt to return head from empty array.
+        ReturnObject returnMsg = myArray.head();
+        assertEquals("Head return value is not empty.", EMPTY_STRUCTURE, returnMsg.getError());
+        
         // Add 100 objects to an array.
         for(int i = 0; i < 100; i++){
             myArray.add((i + 1) * 10);
@@ -25,6 +29,8 @@ public class FunctionalLinkedListTest {
         // Check that the value of head is correct.
         int headInt = (Integer) myArray.head().getReturnValue();
         assertEquals("Head return value is incorrect.", 10, headInt);
+        
+        // Check that the original array is unmodified.
         for(int i = 0; i < 100; i++){
             int j = (Integer) myArray.get(i).getReturnValue();
             assertEquals("Original array has been modified.", (i + 1) * 10, j);
@@ -32,14 +38,13 @@ public class FunctionalLinkedListTest {
     }
     
     @Test
-    public void testHeadIsEmpty(){
-        ReturnObject returnMsg = myArray.head();
-        assertEquals("Head return value is not empty.", EMPTY_STRUCTURE, returnMsg.getError());
-    }
-    
-    @Test
     public void testRest(){
         FunctionalList restList;
+        
+        // Check 'rest' applied to empty list returns empty list.
+        restList = myArray.rest();
+        boolean empty = restList.isEmpty();
+        assertTrue("The returned list is not empty.", empty);
         
         // Add 100 objects to the array.
         for(int i = 0; i < 100; i++){
@@ -59,12 +64,6 @@ public class FunctionalLinkedListTest {
             int j = (Integer) myArray.get(i).getReturnValue();
             assertEquals("Original array has been modified.", (i + 1) * 10, j);
         }
-    }
-    
-    @Test
-    public void testRestReturnsEmpty(){
-        boolean isEmpty = myArray.isEmpty();
-        assertTrue("The newly created array is not empty.", isEmpty);
     }
     
 }

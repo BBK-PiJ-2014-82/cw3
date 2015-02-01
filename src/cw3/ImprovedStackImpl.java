@@ -21,9 +21,13 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public ImprovedStack reverse() {
         List newList = new ArrayList();
+        
+        // Reverse the array.
         for(int i = baseList.size()-1; i > -1 ; i--){
             newList.add(baseList.get(i).getReturnValue());
         }
+        
+        // Create and return the new stack.
         ImprovedStack newStack = new ImprovedStackImpl(newList);
         return newStack;
     }

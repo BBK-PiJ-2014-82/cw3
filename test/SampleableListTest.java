@@ -40,7 +40,7 @@ public class SampleableListTest {
         assertTrue("The new list is not a true sample.", sizeCheck);
         
         // Check that the correct numbers are returned.
-        int j = 0;
+        int j;
         for(int i = 0; i < newList.size(); i++){
             j = (Integer) newList.get(i).getReturnValue();
             assertEquals("Sampled numbers are incorrect.", ((i*2)+1) * 10, j);
@@ -65,7 +65,7 @@ public class SampleableListTest {
         assertTrue("The new list is not a true sample.", sizeCheck);
         
         // Check that the correct numbers are returned.
-        int j = 0;
+        int j;
         for(int i = 0; i < newList.size(); i++){
             j = (Integer) newList.get(i).getReturnValue();
             assertEquals("Sampled numbers are incorrect.", ((i*2)+1) * 10, j);
@@ -90,7 +90,7 @@ public class SampleableListTest {
         assertTrue("The new list is not a true sample.", sizeCheck);
         
         // Check that the correct numbers are returned.
-        int j = 0;
+        int j;
         for(int i = 0; i < newList.size(); i++){
             j = (Integer) newList.get(i).getReturnValue();
             assertEquals("Sampled numbers are incorrect.", ((i*2)+1) * 10, j);
@@ -115,7 +115,7 @@ public class SampleableListTest {
         assertTrue("The new list is not a true sample.", sizeCheck);
         
         // Check that the correct numbers are returned.
-        int j = 0;
+        int j;
         for(int i = 0; i < newList.size(); i++){
             j = (Integer) newList.get(i).getReturnValue();
             assertEquals("Sampled numbers are incorrect.", ((i*2)+1) * 10, j);

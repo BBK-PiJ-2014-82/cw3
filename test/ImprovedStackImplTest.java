@@ -1,5 +1,5 @@
 import cw3.ErrorMessage;
-import static cw3.ErrorMessage.EMPTY_STRUCTURE;
+import static cw3.ErrorMessage.*;
 import cw3.ImprovedStackImpl;
 import cw3.FunctionalLinkedList;
 import cw3.ImprovedStack;
@@ -53,11 +53,16 @@ public class ImprovedStackImplTest {
         FunctionalLinkedList newList = new FunctionalLinkedList();
         stack = new ImprovedStackImpl(newList);
         
+        // Push empty element onto stack.
+        stack.push(null);
+        int size = stack.size();
+        assertEquals("New Stack is wrong size.", 0, size);
+        
         // Push elements onto new stack and check size.
         for(int i = 1; i < 201; i++){
             stack.push(i * 10);
         }
-        int size = stack.size();
+        size = stack.size();
         assertEquals("New Stack is wrong size.", 200, size);
         
         // Check pushed elements are correct.
@@ -126,6 +131,7 @@ public class ImprovedStackImplTest {
         for(int i = 1; i < 101; i++){
             stack.push(i * 10);
         }
+        
         ImprovedStack newStack = stack.reverse();
         
         // Check size of reversed stack.

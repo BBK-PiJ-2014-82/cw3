@@ -58,9 +58,7 @@ public class ArrayList implements List {
         ReturnObject returnItem;
         returnItem = checkIndex(index);
         // Test whether the index is within range.
-        if(returnItem.hasError()){
-            return returnItem;
-        } else {
+        if(!returnItem.hasError()){
             returnItem = new ReturnObjectImpl(newList[index]);
             // Repace the removed object with next object & move all others down.
             for(int i = index; i < nextFree-1; i++){
@@ -70,8 +68,8 @@ public class ArrayList implements List {
             newList[nextFree-1] = null;
             nextFree -= 1;
             if(nextFree < arraySize/2){decreaseSize();}
-            return returnItem;
         }
+        return returnItem;
     }
     
     @Override
@@ -102,15 +100,13 @@ public class ArrayList implements List {
     public ReturnObject add(Object item){
         ReturnObject returnItem;
         returnItem = checkNull(item);
-        if(returnItem.hasError()){
-            return returnItem;
-        } else {
+        if(!returnItem.hasError()){
             if(nextFree+1 > arraySize){increaseSize();}
             newList[nextFree] = item;
             nextFree += 1;
             returnItem = new ReturnObjectImpl();
-            return returnItem;
         }
+        return returnItem;
     }
     
     /**

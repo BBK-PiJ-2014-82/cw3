@@ -138,7 +138,7 @@ public class ArrayList implements List {
      * @return a wrapper containing the error message that needs to be returned.
      */
     private ReturnObject checkIndex(int index){
-        ReturnObjectImpl error;
+        ReturnObject error;
         if(index < 0 || index >= nextFree){    
             // Test whether the list is empty.
             if(nextFree != 0){
@@ -159,7 +159,7 @@ public class ArrayList implements List {
      * @return a wrapper containing the error message that needs to be returned.
      */
     private ReturnObject checkNull(Object item){
-        ReturnObjectImpl error;
+        ReturnObject error;
         if(item == null){
             error = new ReturnObjectImpl(INVALID_ARGUMENT);
         } else {

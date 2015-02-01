@@ -25,6 +25,26 @@ public class SampleableListTest {
     }
     
     @Test
+    public void createSampleableListFromScratch(){
+        // Create new sampleable list.
+        SampleableList newList;
+        newList = new SampleableListImpl();
+        for(int i = 1; i < 201; i++){newList.add(i * 10);}
+        newList = newList.sample();
+        
+        // Test the size of the sampled list.
+        boolean sizeCheck = newList.size() == 100;
+        assertTrue("The new list is not a true sample.", sizeCheck);
+        
+        // Check that the correct numbers are returned.
+        int j;
+        for(int i = 0; i < newList.size(); i++){
+            j = (Integer) newList.get(i).getReturnValue();
+            assertEquals("Sampled numbers are incorrect.", ((i*2)+1) * 10, j);
+        }
+    }
+    
+    @Test
     public void SampleArrayListTest(){
         // Create initial list to be sampled.
         ArrayList myList = new ArrayList();

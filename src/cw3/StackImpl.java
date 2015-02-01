@@ -46,13 +46,13 @@ public class StackImpl extends AbstractStack {
 
     @Override
     public ReturnObject pop() {
+        ReturnObject returnItem;
         if(internalList.isEmpty()){
-            ReturnObjectImpl empty = new ReturnObjectImpl(EMPTY_STRUCTURE);
-            return empty;
+            returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
         } else {
-            ReturnObjectImpl item = new ReturnObjectImpl(internalList.remove(0).getReturnValue());
-            return item;
+            returnItem = new ReturnObjectImpl(internalList.remove(0).getReturnValue());
         }
+        return returnItem;
     }
     
 }

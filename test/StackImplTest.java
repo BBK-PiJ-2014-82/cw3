@@ -67,14 +67,14 @@ public class StackImplTest {
     public void testTop(){
         // Create new stack.
         FunctionalLinkedList newList = new FunctionalLinkedList();
-        for(int i = 1; i < 101; i++){
-            newList.add(i * 15);
-        }
         stack = new StackImpl(newList);
+        for(int i = 1; i < 101; i++){
+            stack.push(i * 10);
+        }
         
         // Check the top of the stack is correct value.
         int top = (Integer) stack.top().getReturnValue();
-        assertEquals("Top result is incorrect.", 15, top);
+        assertEquals("Top result is incorrect.", 1000, top);
         
         // Check that correct error is returned from the top of an empty stack.
         for(int i = 100; i > 0; i--){
@@ -89,14 +89,14 @@ public class StackImplTest {
         // Create a new list.
         FunctionalLinkedList newList = new FunctionalLinkedList();
         for(int i = 1; i < 101; i++){
-            newList.add(i * 15);
+            newList.add(i * 10);
         }
         stack = new StackImpl(newList);
         
         // Check that popping an element leave the correct element on top.
         stack.pop();
         int pop = (Integer) stack.pop().getReturnValue();
-        assertEquals("Initial pop did not work correctly.", 30, pop);
+        assertEquals("Initial pop did not work correctly.", 990, pop);
         
         // Check that the size after popping is correct.
         int size = stack.size();

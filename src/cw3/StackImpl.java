@@ -39,7 +39,7 @@ public class StackImpl extends AbstractStack {
         if(internalList.isEmpty()){
             returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
         } else {
-            returnItem = new ReturnObjectImpl(internalList.get(0).getReturnValue());
+            returnItem = new ReturnObjectImpl(internalList.get(size()-1).getReturnValue());
         }
         return returnItem;
     }
@@ -50,7 +50,7 @@ public class StackImpl extends AbstractStack {
         if(internalList.isEmpty()){
             returnItem = new ReturnObjectImpl(EMPTY_STRUCTURE);
         } else {
-            returnItem = new ReturnObjectImpl(internalList.remove(0).getReturnValue());
+            returnItem = new ReturnObjectImpl(internalList.remove(size()-1).getReturnValue());
         }
         return returnItem;
     }

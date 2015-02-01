@@ -27,11 +27,8 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
     
     @Override
     public FunctionalList rest(){
-        FunctionalLinkedList returnList;
-        if(isEmpty()){
-            returnList = new FunctionalLinkedList();
-        } else {
-            returnList = new FunctionalLinkedList();
+        FunctionalList returnList = new FunctionalLinkedList();
+        if(!this.isEmpty()){
             for(int i = 1; i < size; i++){
                 Object addItem = get(i).getReturnValue();
                 returnList.add(addItem);

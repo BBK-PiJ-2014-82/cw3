@@ -17,39 +17,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
      * 
      * @param list An ArrayList that will be sampled.
      */
-    public SampleableListImpl(ArrayList list){
-        for(int i = 0; i < list.size(); i++){
-            add(list.get(i).getReturnValue());
-        }
-    }
-    
-    /**
-     * Class Constructor for LinkedList.
-     * 
-     * @param list A LinkedList that will be sampled.
-     */
-    public SampleableListImpl(LinkedList list){
-        for(int i = 0; i < list.size(); i++){
-            add(list.get(i).getReturnValue());
-        }
-    }
-    
-    /**
-     * Class Constructor for FunctionalArrayList.
-     * 
-     * @param list A FunctionArrayList that will be sampled.
-     */
-    public SampleableListImpl(FunctionalArrayList list){
-        for(int i = 0; i < list.size(); i++){
-            add(list.get(i).getReturnValue());
-        }
-    }
-    
-    /** Class Constructor for FunctionalLinkedList.
-     * 
-     * @param list A FunctionalLinkedList that will be sampled.
-     */
-    public SampleableListImpl(FunctionalLinkedList list){
+    public SampleableListImpl(List list){
         for(int i = 0; i < list.size(); i++){
             add(list.get(i).getReturnValue());
         }

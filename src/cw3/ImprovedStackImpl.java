@@ -54,12 +54,12 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     @Override
     public ReturnObject top() {
-        return baseList.get(0);
+        return baseList.get(size()-1);
     }
 
     @Override
     public ReturnObject pop() {
-        return baseList.remove(0);
+        return baseList.remove(size()-1);
     }
     
 }

@@ -76,6 +76,9 @@ public class StackImplTest {
         int top = (Integer) stack.top().getReturnValue();
         assertEquals("Top result is incorrect.", 1000, top);
         
+        // Check size is correct after top.
+        assertEquals("The size is not correct.", 100, stack.size());
+        
         // Check that correct error is returned from the top of an empty stack.
         for(int i = 100; i > 0; i--){
             stack.pop();

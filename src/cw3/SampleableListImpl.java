@@ -1,7 +1,9 @@
 package cw3;
 
 /**
- * This is an implementation of SampleableList that extends ArrayList.
+ * This is an implementation of SampleableList that extends FunctionalArrayList.  The
+ * sampleable list can take another list as a constructor and transform that
+ * list into a sampleable list.
  * 
  * @author James
  */
@@ -15,7 +17,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList  {
     /**
      * Class Constructor for ArrayList.
      * 
-     * @param list An ArrayList that will be sampled.
+     * @param list Another that can be sampled.
      */
     public SampleableListImpl(List list){
         for(int i = 0; i < list.size(); i++){

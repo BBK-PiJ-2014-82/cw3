@@ -75,6 +75,13 @@ public class StackImplTest {
         // Check the top of the stack is correct value.
         int top = (Integer) stack.top().getReturnValue();
         assertEquals("Top result is incorrect.", 15, top);
+        
+        // Check that correct error is returned from the top of an empty stack.
+        for(int i = 100; i > 0; i--){
+            stack.pop();
+        }
+        ErrorMessage error = stack.top().getError();
+        assertEquals("A correct error message is not returned.", EMPTY_STRUCTURE, error);
     }
     
     @Test

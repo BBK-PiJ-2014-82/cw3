@@ -1,3 +1,5 @@
+import cw3.ErrorMessage;
+import static cw3.ErrorMessage.*;
 import cw3.StackImpl;
 import cw3.FunctionalLinkedList;
 import org.junit.Test;
@@ -77,7 +79,7 @@ public class StackImplTest {
     
     @Test
     public void testPop(){
-        // Create a new stack.
+        // Create a new list.
         FunctionalLinkedList newList = new FunctionalLinkedList();
         for(int i = 1; i < 101; i++){
             newList.add(i * 15);
@@ -92,6 +94,13 @@ public class StackImplTest {
         // Check that the size after popping is correct.
         int size = stack.size();
         assertEquals("Stack is not the correct size.", 98, size);
+        
+        // Check that correct error is returned from popping an empty stack.
+        for(int i = 98; i > 0; i--){
+            stack.pop();
+        }
+        ErrorMessage error = stack.pop().getError();
+        assertEquals("A correct error message is not returned.", EMPTY_STRUCTURE, error);
     }
     
 }

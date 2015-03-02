@@ -1,7 +1,3 @@
-import cw3.ErrorMessage;
-import static cw3.ErrorMessage.*;
-import cw3.StackImpl;
-import cw3.FunctionalLinkedList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -84,7 +80,7 @@ public class StackImplTest {
             stack.pop();
         }
         ErrorMessage error = stack.top().getError();
-        assertEquals("A correct error message is not returned.", EMPTY_STRUCTURE, error);
+        assertEquals("A correct error message is not returned.", ErrorMessage.EMPTY_STRUCTURE, error);
     }
     
     @Test
@@ -110,7 +106,7 @@ public class StackImplTest {
             stack.pop();
         }
         ErrorMessage error = stack.pop().getError();
-        assertEquals("A correct error message is not returned.", EMPTY_STRUCTURE, error);
+        assertEquals("A correct error message is not returned.", ErrorMessage.EMPTY_STRUCTURE, error);
     }
     
 }

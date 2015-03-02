@@ -1,10 +1,6 @@
-import cw3.ErrorMessage;
-import cw3.LinkedList;
 import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-import static cw3.ErrorMessage.*;
 
 public class LinkedListTest {
     
@@ -30,14 +26,14 @@ public class LinkedListTest {
         
         // Test adding a null object.
         ErrorMessage error = myArray.add(null).getError();
-        assertEquals("Incorrect error " + error + " returned.", INVALID_ARGUMENT, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INVALID_ARGUMENT, error);
     }
     
     @Test
     public void testGet(){
         // Test getting an object from empty array.
         ErrorMessage error = myArray.get(10).getError();
-        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 objects.
         for(int i = 0; i < 20; i++){
@@ -50,7 +46,7 @@ public class LinkedListTest {
         
         // Test getting an out of bounds index number.
         error = myArray.get(100).getError();
-        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
     }
     
     @Test
@@ -66,7 +62,7 @@ public class LinkedListTest {
     public void testRemove(){
         // Test getting an object from empty list.
         ErrorMessage error = myArray.remove(10).getError();
-        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 objects.
         for(int i = 0; i < 20; i++){
@@ -87,7 +83,7 @@ public class LinkedListTest {
         
         // Test removing an out of bounds index number.
         error = myArray.remove(100).getError();
-        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
         
         // Remove remaining objects.
         for(int i = 18; i > 0; i--){myArray.remove(0);}
@@ -122,7 +118,7 @@ public class LinkedListTest {
     public void testAddingWithIndex(){
         // Test adding an object to empty array.
         ErrorMessage error = myArray.add(10, 3000).getError();
-        assertEquals("Incorrect error " + error + " returned.", EMPTY_STRUCTURE, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.EMPTY_STRUCTURE, error);
         
         // Add 20 items.
         for(int i = 0; i < 20; i++){
@@ -138,11 +134,11 @@ public class LinkedListTest {
         
         // Test adding an out of bounds index number.
         error = myArray.add(100, 3000).getError();
-        assertEquals("Incorrect error " + error + " returned.", INDEX_OUT_OF_BOUNDS, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INDEX_OUT_OF_BOUNDS, error);
         
         // Test adding a null object.
         error = myArray.add(1, null).getError();
-        assertEquals("Incorrect error " + error + " returned.", INVALID_ARGUMENT, error);
+        assertEquals("Incorrect error " + error + " returned.", ErrorMessage.INVALID_ARGUMENT, error);
     }
     
     @Test

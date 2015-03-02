@@ -1,9 +1,3 @@
-import cw3.SampleableListImpl;
-import cw3.FunctionalLinkedList;
-import cw3.LinkedList;
-import cw3.ArrayList;
-import cw3.FunctionalArrayList;
-import cw3.SampleableList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

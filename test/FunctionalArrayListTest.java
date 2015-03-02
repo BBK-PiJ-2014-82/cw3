@@ -1,10 +1,6 @@
-import cw3.ReturnObject;
-import cw3.FunctionalArrayList;
 import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static cw3.ErrorMessage.*;
-import cw3.FunctionalList;
 
 public class FunctionalArrayListTest {
     
@@ -19,7 +15,7 @@ public class FunctionalArrayListTest {
     public void testHead(){
         // Check attempt to return head from empty array.
         ReturnObject returnMsg = myArray.head();
-        assertEquals("Head return value is not empty.", EMPTY_STRUCTURE, returnMsg.getError());
+        assertEquals("Head return value is not empty.", ErrorMessage.EMPTY_STRUCTURE, returnMsg.getError());
         
         // Add 100 objects.
         for(int i = 0; i < 100; i++){
